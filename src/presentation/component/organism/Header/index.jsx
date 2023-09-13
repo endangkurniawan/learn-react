@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 // -- component
 import Button from "presentation/component/atom/Button";
 
+// --state
+import useCart from "core/state/cart";
+
 const Header = () => {
+  const { totalCart } = useCart();
   return (
     <div className="header">
       <div className="container">
         <div className="header__wrapper">
           <Link className="header__logo" to="/">
-            <img
-              className="header__logo__img"
-              src="asset/img/logo/data-warehouse01.png"
-              alt="data-warehouse"
-            />
+            <img className="header__logo__img" src="asset/img/logo/data-warehouse01.png" alt="data-warehouse" />
           </Link>
           <button className="burger-menu js-burger-menu" type="button">
             <span className="burger-menu__bar"></span>
@@ -54,6 +54,7 @@ const Header = () => {
               </li>
             </ul>
             <div className="header__auth">
+              <p>Keranjang: {totalCart}</p>
               <Button variant="arrow" link>
                 Request Demo
               </Button>
